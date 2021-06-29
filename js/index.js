@@ -47,79 +47,35 @@ window.addEventListener('wheel', function(){
 
 // window.addEventListener('load', () => alert(`You're about to enter my website.`));
 
-//focus 😔 Study more 😔
+//focus
 
-const button = document.querySelectorAll('.btn');
-
-button[0].addEventListener('focus', function(){
-    if(button[0].style.backgroundColor === ''){
-        button[0].style.backgroundColor = 'purple';
-    }else if(button[0].style.backgroundColor === 'purple'){
-        button[0].style.backgroundColor = '';
-    }else{
-        return;
-    }
-});
-
-button[1].addEventListener('focus', function(){
-    if(button[1].style.backgroundColor === ''){
-        button[1].style.backgroundColor = 'purple';
-    }else if(button[1].style.backgroundColor === 'purple'){
-        button[1].style.backgroundColor = '';
-    }else{
-        return;
-    }
-});
-
-button[2].addEventListener('focus', function(){
-    if(button[2].style.backgroundColor === ''){
-        button[2].style.backgroundColor = 'purple';
-    }else if(button[2].style.backgroundColor === 'purple'){
-        button[2].style.backgroundColor = '';
-    }else{
-        return;
-    }
-});
+document.querySelectorAll('.btn').forEach(b => b.addEventListener('click', (e) => {
+    e.target.style.backgroundColor === 'purple' ? e.target.style.backgroundColor = '' : e.target.style.backgroundColor = 'purple'
+}));
 
 //resize
 
-// const body = document.querySelector('body');
+const body = document.querySelector('body');
 
-// window.addEventListener('resize', () => body.style.backgroundColor = '#4f4f4f');
+window.addEventListener('resize', () => body.style.backgroundColor = '#4f4f4f');
 
 //scroll
 
 const logo = document.querySelector('.logo-heading');
 
-window.addEventListener('scroll', function(){
-    logo.style.color = `red`;
-});
+window.addEventListener('scroll', () => pageYOffset === 0 ? logo.style.color = '' : logo.style.color = 'red');
 
-//select
+//select 🛑🛑🛑🛑🛑 STUDY MORE 🛑🛑🛑🛑🛑
 
-// function logSelection(event) {
-//     const log = document.querySelector('.intro p');
-//     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-//     log.textContent = `You selected: ${selection}`;
-// }
-
-function random(event){
-    // const log = document.querySelector('.intro p');
-    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    return selection;
-}
-
-document.onselect = console.log(random);
-
-
-// window.addEventListener('select', logSelection);
-
-//e.target.style.fontWeight = 'bold'
+document.querySelector('p').addEventListener('mouseup', () => {
+    const selection = document.getSelection().toString();
+    console.log(selection);
+})
 
 //dblclick
 
 window.addEventListener('dblclick', (event) =>  event.target.style.filter = `grayscale(1)`);
 
-//drag || drop 
+// //drag || drop 
 
 window.addEventListener('drag', (event) => event.target.style.filter = 'grayscale(0)');
